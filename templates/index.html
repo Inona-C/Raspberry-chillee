@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT 智慧家庭控制</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">IoT 智慧家庭</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">設備</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">設定</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">智慧家庭儀表板</h1>
+        <div class="row">
+            <!-- 溫度感測器卡片 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        環境溫度
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title" id="temperature">25.5 °C</h3>
+                        <p class="card-text">即時室內溫度</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        最後更新: <span id="temp-last-updated">剛剛</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 濕度感測器卡片 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        環境濕度
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title" id="humidity">60 %</h3>
+                        <p class="card-text">即時室內濕度</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        最後更新: <span id="hum-last-updated">剛剛</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 燈光控制卡片 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        客廳燈光
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title" id="light-status">關閉</h3>
+                        <button class="btn btn-success mt-3" id="toggle-light">開啟/關閉</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        狀態: <span id="light-last-updated">剛剛</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 風扇控制卡片 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        臥室風扇
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title" id="fan-status">關閉</h3>
+                        <button class="btn btn-primary mt-3" id="toggle-fan">開啟/關閉</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        狀態: <span id="fan-last-updated">剛剛</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 門窗狀態卡片 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        門窗狀態
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title text-success" id="door-window-status">全部關閉</h3>
+                        <p class="card-text">即時門窗安全狀態</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        最後檢查: <span id="door-window-last-updated">剛剛</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 警報系統卡片 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        警報系統
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title text-danger" id="alarm-status">已解除</h3>
+                        <button class="btn btn-warning mt-3" id="toggle-alarm">布防/解除</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        狀態: <span id="alarm-last-updated">剛剛</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p>&copy; 2025 IoT 智慧家庭. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
